@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes - PracticeFlowV1</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+    <h1>PracticeFlowV1</h1>
+
+    <nav>
+        <a href="index.html">Dashboard</a>
+        <a href="worksheets.html">Practice Worksheets</a>
+        <a href="notes.html">Notes</a>
+    </nav>
+</header>
+
+<main>
+
+    <section class="dashboard-card">
+
+        <h2>Upload Notes</h2>
+
+        <form id="notesForm">
+
+            <label for="classSelect">Class</label><br>
+            <select id="classSelect" required>
+                <option value="">Select Class</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+            </select>
+
+            <br><br>
+
+            <label for="subject">Subject</label><br>
+            <input
+                type="text"
+                id="subject"
+                placeholder="Enter Subject"
+                required
+            >
+
+            <br><br>
+
+            <label for="chapter">Chapter Name</label><br>
+            <input
+                type="text"
+                id="chapter"
+                placeholder="Enter Chapter Name"
+                required
+            >
+
+            <br><br>
+
+            <label for="notesTitle">Notes Title</label><br>
+            <input
+                type="text"
+                id="notesTitle"
+                placeholder="Enter Notes Title"
+                required
+            >
+
+            <br><br>
+
+            <label for="pdfFile">PDF File</label><br>
+            <input
+                type="file"
+                id="pdfFile"
+                accept=".pdf"
+                required
+            >
+
+            <br><br>
+
+            <button type="submit">
+                Upload Notes
+            </button>
+
+        </form>
+
+    </section>
+
+    <section class="dashboard-card">
+
+        <h2>Notes</h2>
+
+        <div id="notesList">
+            <p>No notes uploaded yet.</p>
+        </div>
+
+    </section>
+
+</main>
+
+<script type="module" src="js/notes.js"></script>
+
+</body>
+</html>

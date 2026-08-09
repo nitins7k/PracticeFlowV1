@@ -1,4 +1,4 @@
-import { db } from "./firebase-config.js";
+import { db, auth } from "./firebase-config.js";
 import { supabase } from "./supabase-config.js";
 
 import {
@@ -10,14 +10,34 @@ import {
     serverTimestamp
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
+import {
+    onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
+onAuthStateChanged(auth, function (user) {
+
+    const uploadSection = document.getElementById("notesForm").closest("section");
+
+    if (!user) {
+        uploadSection.style.display = "none";
+    }
+
+});
+
+
 const form = document.getElementById("notesForm");
 const notesList = document.getElementById("notesList");
 
 loadNotes();
 
 form.addEventListener("submit", async function (event) {
-
     event.preventDefault();
+
+    if (!auth.currentUser) {
+        alert("Please login as a teacher to upload notes.");
+        window.location.href = "login.html";
+        return;
+    }
 
     const className = document.getElementById("classSelect").value;
     const subject = document.getElementById("subject").value.trim();

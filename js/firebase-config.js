@@ -2,8 +2,9 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 import { getStorage } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-storage.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 
-// Paste your Firebase configuration below
+// Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyDGE68fmPbl5XlM8PaJZvyxBj3UkbhqMIg",
     authDomain: "practiceflowv1.firebaseapp.com",
@@ -22,5 +23,8 @@ const db = getFirestore(app);
 // Initialize Storage
 const storage = getStorage(app);
 
+// Initialize Authentication
+const auth = getAuth(app);
+
 // Export for use in other JavaScript files
-export { db, storage };
+export { db, storage, auth };

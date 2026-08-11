@@ -5,21 +5,14 @@ import {
     signOut
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 
-const loginButton = document.getElementById("loginButton");
 const logoutButton = document.getElementById("logoutButton");
-const teacherButton = document.getElementById("teacherButton");
 
 onAuthStateChanged(auth, function (user) {
 
-    if (user) {
-    loginButton.style.display = "none";
-    logoutButton.style.display = "inline-block";
-    teacherButton.style.display = "inline-block";
-} else {
-    loginButton.style.display = "inline-block";
-    logoutButton.style.display = "none";
-    teacherButton.style.display = "none";
-}
+    if (!user) {
+        window.location.href = "login.html";
+        return;
+    }
 
 });
 
